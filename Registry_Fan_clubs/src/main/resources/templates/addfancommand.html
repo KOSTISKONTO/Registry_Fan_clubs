@@ -1,0 +1,44 @@
+<!doctype html>
+
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="~{page_layout/layout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Fan Commander Form Page</title>
+</head>
+<body>
+<div layout:fragment="main-content">
+    <form class="row g-3" th:action="@{/formfancommand}" th:object="${fan}" method="post">
+        <div class="form-outline mb-4">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" th:field="*{name}" id="name" placeholder="name" class="form-control">
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+        </div>
+
+        <div class="form-outline mb-4">
+            <label for="surname" class="form-label">Surname</label>
+            <input type="text" th:field="*{surname}" id="surname" placeholder="surname" class="form-control">
+            <span th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></span>
+        </div>
+        <div class="form-outline mb-4">
+            <label for="age" class="form-label">Age</label>
+            <input type="text" th:field="*{age}" id="age" placeholder="age" class="form-control">
+            <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></span>
+        </div>
+
+        <div class="form-outline mb-4">
+            <label for="AM" class="form-label">AM</label>
+            <input type="text" th:field="*{AM}" id="AM" placeholder="AM" class="form-control">
+            <span th:if="${#fields.hasErrors('AM')}" th:errors="*{AM}"></span>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="~{page_layout/layout}">
+<head>
+  <meta charset="UTF-8">
+  <title>Teacher Form Page</title>
+</head>
+<body>
+<div layout:fragment="main-content">
+  <form method="post" action="/checkellasaitisi">
+    <input type="number" name="id_aitisis">id of request</input>
+    <input type="submit" value="ok"/>
+  </form>
+</div>
+</body>
+</html>
