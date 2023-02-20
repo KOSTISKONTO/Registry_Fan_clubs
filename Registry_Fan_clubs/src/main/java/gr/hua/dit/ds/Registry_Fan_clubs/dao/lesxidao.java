@@ -11,5 +11,6 @@ public interface lesxidao {
     void deleteLesxi(int id);
     Lesxi getLesxi_by_id_aitisis(int id_aitisis);
     Lesxi getLesxi_by_name_aitisis(String name);
+    Lesxi getLesxibyidcommander(int id );
 
 }

@@ -47,8 +47,8 @@ public class ellascontroller {
     @GetMapping("/getAmMembers/{lid}")
     public List<String> getAmMembers(@PathVariable int lid)
     {
-        List<String> Am_Members=new ArrayList<String>();
         Lesxi alesxi=lesxidao.getlesxi(lid);
+        List<String> Am_Members=new ArrayList<String>();
         int size=alesxi.getFans().size();
         for (int i=0; i<size; i++)
         {

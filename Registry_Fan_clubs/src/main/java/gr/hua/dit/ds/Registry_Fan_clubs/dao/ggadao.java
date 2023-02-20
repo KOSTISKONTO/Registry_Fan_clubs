@@ -9,5 +9,7 @@ public interface ggadao {
     AitisiGga saveAitisi(AitisiGga aitigga);
     AitisiGga checkAitisi(int id);
     AitisiGga newAitisi_in_Lesxi(AitisiGga aitigga);
+    AitisiGga getGgabyAmcommander(String idcommander);
+    List<AitisiGga> getekkremeis();
 
 }

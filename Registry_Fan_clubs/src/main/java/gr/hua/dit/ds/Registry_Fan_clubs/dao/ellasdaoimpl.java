@@ -54,6 +54,7 @@ public class ellasdaoimpl implements ellasdao{
     Επιστρέφει τις εκκρεμείς αιτήσεις της ΕΛΑΣ
      */
 
+    @Transactional
     @Override
     public List<AitisiEllas> aitisis_ekkremeis() {
         Session session = em.unwrap(Session.class);

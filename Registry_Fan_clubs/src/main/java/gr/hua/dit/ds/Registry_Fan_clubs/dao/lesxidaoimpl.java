@@ -1,6 +1,7 @@
 package gr.hua.dit.ds.Registry_Fan_clubs.dao;
 
 import gr.hua.dit.ds.Registry_Fan_clubs.entity.AitisiGga;
+import gr.hua.dit.ds.Registry_Fan_clubs.entity.Fan;
 import gr.hua.dit.ds.Registry_Fan_clubs.entity.Lesxi;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ public class lesxidaoimpl implements lesxidao{
 
     @Autowired
     private EntityManager em;
+
+    @Autowired
+    private fandao fandao;
 
     @Override
     public List<Lesxi> getLesxes() {
@@ -77,11 +81,28 @@ public class lesxidaoimpl implements lesxidao{
         {
            if(lesxes.get(i).getName().equals(name))
            {
+               Lesxi alesxi=lesxes.get(i);
+               System.out.println(alesxi.getId()+alesxi.getFans().toString()+alesxi.getName());
                return lesxes.get(i);
 
            }
         }
 
+        return null;
+    }
+
+    @Override
+    public Lesxi getLesxibyidcommander(int id) {
+        Session session = em.unwrap(Session.class);
+        Query query = session.createQuery("from Lesxi", Lesxi.class);
+        List<Lesxi> lesxes = query.getResultList();
+        for (int i=0; i<lesxes.size(); i++)
+        {
+            if(lesxes.get(i).getId_commander()==id)
+            {
+                return lesxes.get(i);
+            }
+        }
         return null;
     }
 

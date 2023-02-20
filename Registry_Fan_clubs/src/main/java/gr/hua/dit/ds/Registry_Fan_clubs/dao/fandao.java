@@ -9,6 +9,10 @@ public interface fandao {
     Fan savefan(Fan fan);
     Fan getfanbyid(int id);
     void deletefan(int id);
+    Fan getfanbyam(String am);
+    Fan getfanbyuser();
+    List<Fan> getFansCommander();
+
 
 
 }

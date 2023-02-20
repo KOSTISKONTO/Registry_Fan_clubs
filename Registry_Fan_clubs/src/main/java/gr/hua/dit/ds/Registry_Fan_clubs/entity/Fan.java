@@ -32,6 +32,14 @@ public class Fan {
     @Column(name="poiniko_mitrwo")
     private boolean poiniko_mitrwo;
 
+    @Column(name="username")
+    private String username;
+
+    @Column(name="iscommander")
+    private boolean iscommander=false;
+    
+
+
     //Mapings
     @ManyToOne(cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name="lesxi_id")
@@ -39,7 +47,7 @@ public class Fan {
     private Lesxi lesxi_id;
 
 
-    //better setter//
+    //getter setter//
     public int getId() {
         return id;
     }
@@ -88,6 +96,25 @@ public class Fan {
         this.poiniko_mitrwo = poiniko_mitrwo;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+
+
+
+
+    public boolean isIscommander() {
+        return iscommander;
+    }
+
+    public void setIscommander(boolean iscommander) {
+        this.iscommander = iscommander;
+    }
 
     public Lesxi getLesxi_id() {
         return lesxi_id;

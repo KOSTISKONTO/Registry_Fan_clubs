@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header class="mb-auto" th:fragment="header">
+    <div>
+        <h3 class="float-md-start mb-0">Cover</h3>
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+            <a sec:authorize="isAuthenticated()" class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="/" th:href="@{/}">ΑΡΧΙΚΗ</a>
+            <a    class="nav-link fw-bold py-1 px-0" href="/login" th:href="@{/login}">ΣΥΝΔΕΣΗ</a>
+            <a  sec:authorize="hasAnyRole('ADMIN','USER')" class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="/addfancommand" th:href="@{/addfancommand}"> ΒΗΜΑ 1ο: ΚΑΤΑΧΩΡΗΣΗ ΣΤΟΙΧΕΙΩΝ ΑΡΧΗΓΟΥ ΛΕΣΧΗΣ</a>
+            <a   sec:authorize="hasAnyRole('ADMIN','USER')" class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="/newaitisigga" th:href="@{/newaitisigga}">ΒΗΜΑ 2ο: ΑΙΤΗΣΗ ΓΙΑ ΝΕΑ ΛΕΣΧΗ</a>
+            <a  sec:authorize="hasAnyRole('ADMIN','USER')" class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="/form" th:href="@{/form}">ΒΗΜΑ 3ο:ΠΡΟΣΘΕΣΕ ΦΙΛΑΘΛΟΥΣ </a>
+            <a  sec:authorize="hasAnyRole('ADMIN','USER')" class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="/formaitisiellas" th:href="@{/formaitisiellas}"> ΒΗΜΑ 4ο: ΝΕΑ ΑΙΤΗΣΗ ΓΙΑ ΕΛΑΣ </a>
+            <a  sec:authorize="hasRole('USER')" class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="/resultaitisigga" th:href="@{/resultaitisigga}"> ΑΠΟΤΕΛΕΣΜΑΤΑ ΑΙΤΗΣΕΩΝ ΜΟΥ ΓΓΑ </a>
+            <a  sec:authorize="hasRole('USER')" class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="/resultaitisielas" th:href="@{/resultaitisielas}"> ΑΠΟΤΕΛΕΣΜΑΤΑ ΑΙΤΗΣΕΩΝ ΜΟΥ ΕΛΑΣ </a>
+            <a   sec:authorize="hasAnyRole('ADMIN','ELAS')" class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="/fans" th:href="@{/fans}">ΟΠΑΔΟΙ</a>
+            <a   sec:authorize="hasAnyRole('ADMIN','ELAS', 'GGA')" class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="/getlesxi" th:href="@{/getlesxi}">ΛΕΣΧΗ ΜΕ ID</a>
+            <a   sec:authorize="hasAnyRole('ADMIN','GGA')" class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="/ekkremeisgga" th:href="@{/ekkremeisgga}">ΕΚΚΡΕΜΕΙΣ ΑΙΤΗΣΕΙΣ ΓΓΑ</a>
+            <a sec:authorize="hasAnyRole('ADMIN','GGA')"  class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="/checkgga" th:href="@{/checkgga}">ΕΛΕΓΧΟΣ ΑΙΤΗΣΗΣ ΓΓΑ </a>
+            <a   sec:authorize="hasAnyRole('ADMIN','ELAS')" class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="/elascreated" th:href="@{/elascreated}">ΕΚΚΡΕΜΕΙΣ ΑΙΤΗΣΕΙΣ ΓΙΑ ΕΛΑΣ</a>
+            <a sec:authorize="hasAnyRole('ADMIN','ELAS')" class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="/checkellas" th:href="@{/checkellas}">ΕΛΕΓΧΟΣ ΑΙΤΗΣΗΣ ΕΛΑΣ</a>
+            <a sec:authorize="isAuthenticated()"  class="nav-link fw-bold py-1 px-0" href="/logout" th:href="@{/logout}">ΑΠΟΣΥΝΔΕΣΗ</a>
+        </nav>
+    </div>
+</header>
+
+</body>
+</html>
+

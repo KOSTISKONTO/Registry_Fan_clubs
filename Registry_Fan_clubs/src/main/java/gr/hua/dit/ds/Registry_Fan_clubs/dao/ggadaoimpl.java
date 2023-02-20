@@ -13,6 +13,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.ArrayList;
 
 @Repository
 
@@ -117,10 +118,44 @@ private fandao fandao;
         return aitisigga;
     }
 
+    @Override
+    public AitisiGga getGgabyAmcommander(String idcommander) {
+        Session session = em.unwrap(Session.class);
+        Query query = session.createQuery("from AitisiGga", AitisiGga.class);
+        List<AitisiGga> aitisis = query.getResultList();
+        for (int i=0; i<aitisis.size(); i++)
+        {
+            if(aitisis.get(i).getAM_commander().equals(idcommander))
+            {
+                return aitisis.get(aitisis.size()-1);
+            }
+        }
+        return null;
+    }
+
+    @Transactional
+    @Override
+    public List<AitisiGga> getekkremeis() {
+        Session session = em.unwrap(Session.class);
+        Query query = session.createQuery("from AitisiGga", AitisiGga.class);
+        List<AitisiGga> aitisis = query.getResultList();
+        List<AitisiGga> ekkremeis=new ArrayList<>();
+        for (int i=0; i<aitisis.size(); i++ )
+        {
+            AitisiGga aitisi=aitisis.get(i);
+            if(aitisi.getStatus().equals("created") && aitisi.getResult().equals("pending_inspection"))
+            {
+                ekkremeis.add(aitisi);
+            }
+        }
+       return ekkremeis;
+    }
+
     @Transactional
     @Override
     public AitisiGga saveAitisi(AitisiGga aitisigga) {
         aitisigga=em.merge(aitisigga);
         return aitisigga;
     }
+
 }

@@ -139,7 +139,6 @@ public class ggacontroller {
        }
        AitisiGga newaitisi=ggadao.getAitisiggabyid(id_aitisis);
 
-
        alesxi.setName(newaitisi.getName_lesxis());
        alesxi.setId_commander(afan.getId());
        alesxi.addFan(afan);

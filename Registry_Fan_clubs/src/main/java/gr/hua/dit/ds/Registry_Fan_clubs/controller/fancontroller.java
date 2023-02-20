@@ -12,10 +12,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
-@RequestMapping("/fan")
+@RequestMapping(value="/fan", headers="Accept=application/json")
+
 public class fancontroller {
     @Autowired
     private fandao fandao;
@@ -80,12 +82,13 @@ public class fancontroller {
 
 
 
-
     @GetMapping("/{fid}")
     public Fan getFan(@PathVariable int fid)
     {
         return fandao.getfanbyid(fid);
     }
+
+
 
     @DeleteMapping("{fid}")
     public void deletefan(@PathVariable int fid)
